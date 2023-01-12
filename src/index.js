@@ -16,6 +16,21 @@ const app = createApp({
     });
   },
   methods: {
+    searchStudent() {
+      if (!this.search) {
+        this.students.forEach((student) => {
+          student.highlight = false;
+        });
+        return;
+      }
+      this.students.forEach((student) => {
+        if (student.name.toLowerCase().includes(this.search.toLowerCase())) {
+          student.highlight = true;
+        } else {
+          student.highlight = false;
+        }
+      });
+    },
     deleteStudent(studId) {
       const index = this.students.findIndex((elem) => elem.id === studId);
       this.students.splice(index, 1);
