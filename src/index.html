@@ -17,6 +17,35 @@
   </head>
   <body>
     <div id="app">
+      <!-- Converter -->
+
+      <input type="text" v-model="amount" @change="getResult" />
+      <br />
+      <select v-model="itemFrom" @change="getResult">
+        <template v-for="item in currency">
+          <option v-if="item.nameA">{{item.nameA}}</option>
+        </template>
+      </select>
+      <select v-model="itemTo" @change="getResult">
+        <option>USD</option>
+        <option>UAH</option>
+      </select>
+      <br />
+
+      <p
+        v-if="amount && itemFrom && itemTo && result == 'Not available'"
+        class="highlight"
+      >
+        {{amount}} {{itemFrom}} - {{result}} {{itemTo}}
+      </p>
+      <p v-else class="success">
+        {{amount}} {{itemFrom}} - {{result}} {{itemTo}}
+      </p>
+
+      <br />
+
+      <!-- Main Task -->
+
       <input
         type="text"
         name="search"
@@ -36,7 +65,7 @@
         </tr>
       </table>
 
-      <input v-model="student.name" />
+      <input v-model="student.name" type="text" />
       <input type="checkbox" v-model="student.zdav" />
       <select v-model="student.group">
         <option value="RPZ 19 1/9">RPZ 19 1/9</option>
