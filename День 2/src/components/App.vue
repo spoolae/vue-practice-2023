@@ -3,21 +3,21 @@
 		<input type="text" name="search" v-model="search"><br>
 		<table class="table table-dark">
 			<tr v-for="item in students"  v-bind:key="item._id">
-        <StudentShow :item="item"></StudentShow>
+        <StudentsTable :item="item"></StudentsTable>
 			</tr>
 		</table>
-    <StudentInput :student="student"></StudentInput>
+    <AddStudent :student="student"></AddStudent>
 			<button @click="addStudent()">Add student</button>
 	</div>
 </template>
 <script>
 import axios from 'axios'
-import StudentInput from './StudentInput.vue';
-import StudentShow from './StudentShow.vue';
+import AddStudent from './AddStudent.vue';
+import StudentsTable from './StudentsTable.vue';
 export default {
   components: {
-    StudentInput,
-    StudentShow
+    AddStudent,
+    StudentsTable
   },
   data() {
     return {

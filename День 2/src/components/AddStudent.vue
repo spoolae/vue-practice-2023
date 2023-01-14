@@ -13,7 +13,7 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: "StudentInput",
+  name: "AddStudent",
   props: {
     student: {
       type: Object,

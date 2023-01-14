@@ -5,7 +5,7 @@
     <td>{{item.group}}</td>
     <td><a href = "#" @click="deleteStudent(item._id)">Видалити</a></td>
   </template>
-  <StudentInput :student="newStudent" v-else></StudentInput>
+  <AddStudent :student="newStudent" v-else></AddStudent>
   <td v-if="!isEdit"><a href = "#" @click="isEdit = !isEdit,newStudent = item">Редагувати</a></td>
   <td v-else><a href = "#" @click="updateStudent(newStudent)">Редагувати</a></td>
 
@@ -13,11 +13,11 @@
 
 <script >
 import { defineComponent } from 'vue';
-import StudentInput from './StudentInput.vue';
+import AddStudent from './AddStudent.vue';
 export default defineComponent({
-  name: "StudentShow",
+  name: "StudentsTable",
    components: {
-    StudentInput
+    AddStudent
   },
   props: {
     item: {
