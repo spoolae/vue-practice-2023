@@ -1,0 +1,15 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+input[type="text"],
+select {
+  padding: 3px;
+  border-radius: 3px;
+}
+
+label {
+  display: inline-block;
+  margin: 5px 0 10px 0;
+}
