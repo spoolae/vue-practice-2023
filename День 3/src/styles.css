@@ -3,13 +3,8 @@ body {
   margin: 20px;
 }
 
-input[type="text"],
-select {
+input[type="text"] {
   padding: 3px;
   border-radius: 3px;
-}
-
-label {
-  display: inline-block;
-  margin: 5px 0 10px 0;
+  min-width: 350px;
 }

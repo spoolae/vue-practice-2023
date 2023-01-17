@@ -1,21 +1,20 @@
 <template>
   <div>
     <h3>Введіть місто, у якому шукаєте відділення</h3>
-    <input type="text" v-model="city" placeholder="Місто" list="cities" @input="showCities" @change="selectCity">
+    <input type="text" v-model="city" placeholder="Місто" list="cities" @input="showCities">
     <datalist id="cities">
         <template v-for="item in cities">
             <option :value="item.Present"></option>
         </template>
     </datalist>
-
     <h3>Введіть номер відділення</h3>
-    <input type="text" v-model="warehouseId" placeholder="Номер відділення" list="warehouses" @input="showWarehouses" @change="selectWarehouse">
-    <datalist id="warehouses">
-        <template v-for="item in warehouses">
-            <option :value="item.Description"></option>
-        </template>
-    </datalist>
-  </div>
+<input type="text" v-model="warehouseId" placeholder="Номер відділення" list="warehouses" @input="showWarehouses">
+<datalist id="warehouses">
+    <template v-for="item in warehouses">
+        <option :value="item.Description"></option>
+    </template>
+</datalist>
+</div>
 </template>
 <script>
 import { myApi } from '../api';
@@ -52,14 +51,15 @@ export default {
       myApi.getRequest("Address","getWarehouses",{
       SettlementRef : this.cityRef,
       WarehouseId:this.warehouseId
-      })
-      .then((res)=>{
-        this.warehouses = res.data.data
-      })
-      .catch(e=>console.error(e));
+      }).then((res)=>{
+    this.warehouses = res.data.data
+  })
+  .catch(e=>console.error(e));
     },
-    selectWarehouse(event) {
-        this.warehouseRef = event.target.value;
+  },
+  watch: {
+    cityRef: function () {
+      this.showWarehouses();
     }
   }
 }
