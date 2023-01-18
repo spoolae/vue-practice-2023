@@ -1,13 +1,13 @@
 <template>
   <div>
-    <h3>Введіть місто, у якому шукаєте відділення</h3>
+    <h3>Населений пункт</h3>
     <input type="text" v-model="cityRef" placeholder="Місто" list="cities" @input="showCities">
     <datalist id="cities">
         <template v-for="item in cities">
             <option :value="item.Ref">{{ item.Present }}</option>
         </template>
     </datalist>
-    <h3>Введіть номер відділення</h3>
+    <h3>Поштове відділення</h3>
     <input type="text" v-model="warehouseId" placeholder="Номер відділення" list="warehouses" @input="showWarehouses">
     <datalist id="warehouses">
         <template v-for="item in warehouses">
@@ -39,7 +39,6 @@ export default {
         .then((res)=>{
           const dataObj = res.data["data"]
           this.cities = dataObj[0].Addresses
-          console.log(dataObj)
         })
     },
     showWarehouses(){
