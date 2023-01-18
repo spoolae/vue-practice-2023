@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from "axios";
 
 const url = " https://api.novaposhta.ua/v2.0/json/ ";
 
@@ -10,28 +10,26 @@ class Api {
     this.customApi = this.createApi();
   }
 
-  createApi(){
+  createApi() {
     const api = axios.create({
       baseURL: this.baseUrl,
     });
     return api;
   }
 
-  getRequest(modelName,calledMethod,methodProperties={}){
+  getRequest(modelName, calledMethod, methodProperties = {}) {
     return myApi.customApi({
-       method: "post",
-       data:{
+      method: "post",
+      data: {
         apiKey: API_KEY,
         modelName,
         calledMethod,
-        methodProperties
-      }
+        methodProperties,
+      },
     });
   }
-
 }
 
 const myApi = new Api(url);
 
 export { myApi };
-
