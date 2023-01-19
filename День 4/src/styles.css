@@ -1,3 +1,7 @@
+* {
+  font-family: "Arial", sans-serif;
+}
+
 table {
   width: 100%;
   margin: 20px 0;
@@ -67,4 +71,78 @@ button:hover {
 
 .highlight {
   color: rgb(255, 84, 84);
+}
+
+.info {
+  margin: 10px;
+}
+
+.info > button {
+  width: 200px;
+  height: 200px;
+}
+
+.info > div {
+  padding: 15px;
+}
+
+.vue-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.vue-modal-inner {
+  padding: 20px;
+  border-radius: 5px;
+  border: 3px solid #333;
+  background-color: #fff;
+  width: 80%;
+}
+
+.vue-modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.vue-modal-content > button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #f44336;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.drop-in-enter-active,
+.drop-in-leave-active {
+  transition: all 0.5s;
+}
+
+.drop-in-enter,
+.drop-in-leave-to {
+  transform: translateY(-50px);
+  opacity: 0;
 }

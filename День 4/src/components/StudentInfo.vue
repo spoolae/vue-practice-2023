@@ -1,19 +1,15 @@
 <template>
-  <div class="container">
+  <div class="info">
     <button @click="isOpen = true"><img :src="student.photo" alt="Student photo" width="100"></button>
     <div>
-      <p>{{ student.name }}</p>
-      <p>{{ student.group }}</p>
-      <p>{{ isDonePrText }}</p>
+      <p>Ім'я <strong>{{ student.name }}</strong></p>
+      <p>Група <strong>{{ student.group }}</strong></p>
+      <p>Практика <strong>{{ isDonePrText }}</strong></p>
   </div>
-
-
-
   <Modal :open="isOpen" @close="isOpen = !isOpen">
     <img :src="student.photo" alt="Student photo">
   </Modal>
   </div>
-
 </template>
 
 <script>
@@ -53,18 +49,3 @@ export default {
 
 }
 </script>
-
-<style>
-.container{
-  max-width: fit-content;
-  display:flex;
-  justify-content:space-between ;
-  border: 2px solid #000;
-  padding:0px;
-}
-
-button{
-  padding-left:0px;
-  margin-right: 20px;
-}
-</style>
