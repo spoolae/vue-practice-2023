@@ -1,5 +1,5 @@
 <template>
-<DetailWeatherCard :item="city"></DetailWeatherCard>
+  <DetailWeatherCard :item="city"></DetailWeatherCard>
 </template>
 
 <script>

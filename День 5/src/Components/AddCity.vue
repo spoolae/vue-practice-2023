@@ -15,7 +15,7 @@
       </select>
       <p></p>
       <router-link :to="`/weather/${currentCity}`" id="contained-button">
-      Show weather
+        Show weather
       </router-link>
     </div>
   </div>
@@ -53,13 +53,13 @@ export default defineComponent({
         this.newCity="";
         this.error="";
         }else{
-          this.error="Місто вже існує";
+          this.error="The city already exists";
         }
       try {
         localStorage.setItem ('cityList', JSON.stringify(this.cityList));
       }catch (e) {
         if (e == QUOTA_EXCEEDED_ERR) {
-          alert ('Перевищений ліміт');
+          alert ('Exceeded limit');
         }
       }
       }
@@ -80,7 +80,6 @@ export default defineComponent({
       }
     }
   }
-
 });
 </script>
 
@@ -140,5 +139,12 @@ p{
   text-align: center;
   cursor: pointer;
   font-size: 18px;
+}
+.container select::selection{
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+    background-color: #f1f1f1;
+    outline: none;
 }
 </style>
