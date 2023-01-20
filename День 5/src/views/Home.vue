@@ -1,18 +1,18 @@
 <template>
   <AddCity :cityList="cityList"></AddCity>
-  <ShowWeather :item="currentPositionCity" v-if="currentPositionCity"></ShowWeather>
-  <ShowWeather v-for="item in cityList" :item="item"></ShowWeather>
+  <WeatherCard :item="currentPositionCity" v-if="currentPositionCity"></WeatherCard>
+  <WeatherCard v-for="item in cityList" :item="item"></WeatherCard>
 </template>
 
 <script>
 import AddCity from '../Components/AddCity.vue';
-import ShowWeather from '../Components/ShowWeater.vue';
+import WeatherCard from '../Components/WeatherCard.vue';
 import { Api } from '../Api';
 export default{
   name:"Home",
   components:{
     AddCity,
-    ShowWeather
+    WeatherCard
   },
   data() {
     return {

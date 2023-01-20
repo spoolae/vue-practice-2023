@@ -96,12 +96,15 @@ export default defineComponent({
  justify-content:space-between ;
  padding:50px 70px;
 }
+
 .container:hover {
   box-shadow: 0px 0px 25px 3px rgba(255, 255, 255, 0.5);
 }
+
 .item-container{
   width:320px;
 }
+
 .data-input{
   width:250px;
   border: none;
@@ -110,6 +113,7 @@ export default defineComponent({
   font-size: 18px;
   margin-bottom: 10px;
 }
+
 .data-input:focus{
     outline: none;
 }
