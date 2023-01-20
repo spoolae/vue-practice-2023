@@ -1,16 +1,16 @@
 <template>
-<CityShowMore :item="city"></CityShowMore>
+<ShowDetailWeather :item="city"></ShowDetailWeather>
 </template>
 
 <script>
-import { CityShowMore } from '../Components';
+import ShowDetailWeather from '../Components/ShowDetailWeather.vue';
 export default {
   name: "CityInfo",
   props: {
     city:''
   },
   components:{
-    CityShowMore
+    ShowDetailWeather
   },
   data() {
     return {

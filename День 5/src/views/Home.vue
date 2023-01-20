@@ -1,18 +1,18 @@
 <template>
-  <CityInput :cityList="cityList"></CityInput>
-  <CityShow :item="currentPositionCity" v-if="currentPositionCity"></CityShow>
-  <CityShow v-for="item in cityList" :item="item"></CityShow>
+  <AddCity :cityList="cityList"></AddCity>
+  <ShowWeather :item="currentPositionCity" v-if="currentPositionCity"></ShowWeather>
+  <ShowWeather v-for="item in cityList" :item="item"></ShowWeather>
 </template>
 
 <script>
-import { CityInput,CityShow } from '../Components';
+import AddCity from '../Components/AddCity.vue';
+import ShowWeather from '../Components/ShowWeater.vue';
 import { Api } from '../Api';
-
 export default{
   name:"Home",
   components:{
-    CityInput,
-    CityShow
+    AddCity,
+    ShowWeather
   },
   data() {
     return {
@@ -43,5 +43,4 @@ export default{
     }
   }
 }
-
 </script>

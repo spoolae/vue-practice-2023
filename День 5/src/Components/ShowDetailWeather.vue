@@ -47,7 +47,7 @@ import {Api} from '../Api'
 import axios from 'axios';
 import { defineComponent } from 'vue';
 export default defineComponent({
-  name: "CityShowMore",
+  name: "ShowDetailWeather",
   props: {
     item: {
       type: String,
@@ -87,20 +87,21 @@ export default defineComponent({
 </script>
 
 <style scoped>
-
-*{
-  box-sizing:border-box;
-}
 .container{
-background: rgba(0, 0, 0, 0.3);
- width: 720px;
- margin:0 auto;
- margin-top:50px ;
- padding:50px 70px;
- display: flex;
- justify-content: space-between;
+ background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72);
  color:#fff;
+ border-radius: 30px;
+ max-width: 720px;
+ margin: 0 auto;
+ display: flex;
+ flex-direction: row;
+ justify-content:space-between ;
+ padding:50px 70px;
 }
+.container:hover {
+  box-shadow: 0px 0px 25px 3px rgba(255, 255, 255, 0.5);
+}
+
 li{
   margin-bottom:5px;
   text-align: center;
