@@ -19,10 +19,28 @@
           type="text"
         />
       </div>
+      <div>
+        <label>
+          <input type="checkbox" v-model="showOptionalFields" />
+          Вказати особисту інформацію
+        </label>
+      </div>
+      <div v-if="showOptionalFields" v-for="item in dataInputListOptional">
+        <label>{{ item.msg }}</label>
+        <input
+          v-model="item.inputData"
+          :name="item.variable"
+          :class="{
+            'block w-full p-2 rounded': true,
+            'text-gray-700': true,
+            'bg-gray-200': true,
+            'mb-4': true,
+            'h-10': true,
+          }"
+          type="text"
+        />
+      </div>
     </form>
-    <FormOptionalData
-      :dataInputListOptional="dataInputListOptional"
-    ></FormOptionalData>
     <button
       @click="sendEmail"
       class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
@@ -32,15 +50,9 @@
     </button>
   </div>
 </template>
-
 <script>
-import FormOptionalData from "../components/FormOptionalData.vue";
-import emailjs from "emailjs-com";
 export default {
   name: "Form",
-  components: {
-    FormOptionalData,
-  },
   data() {
     return {
       dataInputList: [
@@ -62,6 +74,7 @@ export default {
         { msg: "Ваше ПІБ", inputData: "", variable: "fromName" },
         { msg: "Номер телефону", inputData: "", variable: "fromPhone" },
       ],
+      showOptionalFields: false,
       formData: {},
     };
   },
