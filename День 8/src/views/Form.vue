@@ -56,6 +56,7 @@
 </template>
 
 <script>
+import emailjs from "emailjs-com";
 export default {
   name: "Form",
   data() {
@@ -85,24 +86,20 @@ export default {
   },
   methods: {
     sendEmail(e) {
-      this.requiredFields.forEach((item) => {
-        this.formData[item.variable] = item.inputData;
-      });
-      this.optionalFields.forEach((item) => {
-        if (!item.inputData) {
-          this.formData[item.variable] = "Анонімно";
-        } else {
-          this.formData[item.variable] = item.inputData;
-        }
+      let fields;
+      this.showOptionalFields
+        ? (fields = [...this.requiredFields, ...this.optionalFields])
+        : (fields = [...this.requiredFields]);
+      let message = "";
+      fields.forEach((field) => {
+        message += field.msg + ": " + field.inputData + "\n";
       });
       try {
         emailjs.send(
-          "service_439weax",
-          "template_o9f0w8m",
-          {
-            ...this.formData,
-          },
-          "gDPJns2l5uUlHFowZ"
+          "service_exgle47",
+          "template_a8arqer",
+          { message },
+          "rVchopyqmELs15MUt"
         );
       } catch (error) {
         console.log({ error });
