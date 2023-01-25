@@ -1,6 +1,15 @@
-import { createApp } from 'vue'
-import './style.css'
-import App from './App.vue'
-import router from './router'
+import { createApp } from "vue";
+import { createRouter, createWebHashHistory } from "vue-router";
 
-createApp(App).use(router).mount('#app')
+import "./App.css";
+import App from "./App.vue";
+import FormPage from "./views/FormPage.vue";
+
+const routes = [{ path: "/", component: FormPage }];
+
+const router = createRouter({
+  history: createWebHashHistory(),
+  routes,
+});
+
+createApp(App).use(router).mount("#app");
