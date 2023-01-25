@@ -1,6 +1,25 @@
 <template>
-  <div class="w-full max-w-screen-md ml-auto mr-auto mt-2">
-    <FormBasicData :dataInputList="dataInputList"></FormBasicData>
+  <div class="w-full max-w-screen-md ml-auto mr-auto mt-2 text-center">
+    <h2 class="text-gray-500 text-3xl font-bold mb-4">
+      Повідомити про корупцію в навчальному закладі
+    </h2>
+    <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <div v-for="item in dataInputList">
+        <label>{{ item.msg }}</label>
+        <input
+          v-model="item.inputData"
+          :name="item.variable"
+          :class="{
+            'block w-full p-2 rounded': true,
+            'text-gray-700': true,
+            'bg-gray-200': true,
+            'mb-4': true,
+            'h-10': true,
+          }"
+          type="text"
+        />
+      </div>
+    </form>
     <FormOptionalData
       :dataInputListOptional="dataInputListOptional"
     ></FormOptionalData>
@@ -15,13 +34,11 @@
 </template>
 
 <script>
-import FormBasicData from "../components/FormBasicData.vue";
 import FormOptionalData from "../components/FormOptionalData.vue";
 import emailjs from "emailjs-com";
 export default {
-  name: "FormPage",
+  name: "Form",
   components: {
-    FormBasicData,
     FormOptionalData,
   },
   data() {

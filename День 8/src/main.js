@@ -3,9 +3,9 @@ import { createRouter, createWebHashHistory } from "vue-router";
 
 import "./App.css";
 import App from "./App.vue";
-import FormPage from "./views/FormPage.vue";
+import Form from "./views/Form.vue";
 
-const routes = [{ path: "/", component: FormPage }];
+const routes = [{ path: "/", component: Form }];
 
 const router = createRouter({
   history: createWebHashHistory(),
